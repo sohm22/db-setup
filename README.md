@@ -43,4 +43,4 @@ db-1  | INSERT 0 26
 ## Verification
 Once the database starts, connect to it using a database client like pgAdmin, DBeaver
 
-From host connect on port 5492 with the `username` and `password` from the `.env` file.
+From host connect on port 5442 with the `username` and `password` from the `.env` file.
