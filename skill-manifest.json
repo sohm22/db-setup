@@ -1,0 +1,124 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/botframework-sdk/master/schemas/skills/skill-manifest-2.0.0.json",
+  "$id": "InsuranceSkillProd",
+  "name": "Insurance Skill Migrated Bot",
+  "version": "1.0",
+  "description": "This is a sample insurance skill definition",
+  "publisherName": "Microsoft",
+  "privacyUrl": "https://myskill.contoso.com/privacy.html",
+  "copyright": "Copyright (c) Microsoft Corporation. All rights reserved.",
+  "license": "",
+  "iconUrl": "https://myskill.contoso.com/icon.png",
+  "tags": [
+    "sample",
+    "insurance"
+  ],
+  "endpoints": [
+    {
+      "name": "Prod",
+      "protocol": "BotFrameworkV3",
+      "description": "Prod endpoint for SkillBot in the Americas",
+      "endpointUrl": "https://insuranceskillbotprodnam.azurewebsites.net/api/messages",
+      "msAppId": "5ca3699f-3922-4198-bf5d-f805f5ecae31"
+    }
+  ],
+  "activities": {
+    "checkInsurance": {
+      "type": "event",
+      "name": "CheckInsurance",
+      "description": "Checks Insurance based on insurance detail provided",
+      "value": {
+        "$ref": "#/definitions/checkInsuranceInput"
+      },
+      "resultValue": {
+        "$ref": "#/definitions/checkInsuranceOutput"
+      }
+    },
+    "updateInsurance": {
+      "type": "event",
+      "name": "UpdateInsurance",
+      "description": "Updates Insurance based on details provided",
+      "value": {
+        "$ref": "#/definitions/updateInsuranceInput"
+      },
+      "resultValue": {
+        "$ref": "#/definitions/updateInsuranceOutput"
+      }
+    },
+    "getAutoQuote": {
+      "type": "event",
+      "name": "GetAutoQuote",
+      "description": "Gives you a car insurance quote",
+      "value": {
+        "$ref": "#/definitions/getAutoQuoteInput"
+      },
+      "resultValue": {
+        "$ref": "#/definitions/getAutoQuoteOuput"
+      }
+    }
+  },
+  "definitions": {
+    "getAutoQuoteInput": {
+      "type": "object",
+      "properties": {
+        "CarInsurance": {
+          "type": "boolean",
+          "description": "If request is for car insurance"
+        }
+      }
+    },
+    "getAutoQuoteOuput": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "description": "quote price"
+        },
+        "details": {
+          "type": "string",
+          "description": "quote details"
+        }
+      }
+    },
+    "updateInsuranceInput": {
+      "type": "object",
+      "properties": {
+        "InsuranceType": {
+          "type": "string",
+          "description": "Insurance Type"
+        }
+      }
+    },
+    "updateInsuranceOutput": {
+      "type": "object",
+      "properties": {
+        "policynumber": {
+          "type": "number",
+          "description": "Policy number"
+        },
+        "accepted": {
+          "type": "boolean",
+          "description": "if the update was accepted"
+        }
+      }
+    },
+    "checkInsuranceInput": {
+      "type": "object",
+      "properties": {
+        "InsuranceDetail": {
+          "type": "object",
+          "description": "Insurance Detail has policyNumber and area code as members"
+        }
+      }
+    },
+    "checkInsuranceOutput": {
+      "type": "object",
+      "properties": {
+        "validity": {
+          "type": "object",
+          "description": "Validity has Valid and Expiration as members"
+        }
+      }
+    }
+  }
+}
