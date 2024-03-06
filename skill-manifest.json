@@ -19,7 +19,7 @@
       "protocol": "BotFrameworkV3",
       "description": "Prod endpoint for SkillBot in the Americas",
       "endpointUrl": "https://insuranceskillbotprodnam.azurewebsites.net/api/messages",
-      "msAppId": "38952179-123c-48b9-a2e6-0472432caf71"
+      "msAppId": "9066a270-eebd-4c6d-99d7-ead702c90a6b"
     }
   ],
   "activities": {
